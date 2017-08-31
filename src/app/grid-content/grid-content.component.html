@@ -1,0 +1,16 @@
+<table class="table table-responsive table-bordered">
+  <thead>
+  <th>Código de producto</th>
+  <th>Nombre de Producto</th>
+  <th>Tipo Producto</th>
+  <th>Precio de Producto</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let producto of productos">
+    <td>{{ producto.prod_codigo }}</td>
+    <td>{{ producto.prod_descripcion }}</td>
+    <td>{{ producto.prtifr_codigo === 1 ? 'ENTERO' : 'FRACCION' }}</td>
+    <td>{{ producto.prec_vta_final }}</td>
+  </tr>
+  </tbody>
+</table>

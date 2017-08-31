@@ -1,0 +1,5 @@
+<label for="input-search-product">Busqueda de producto: </label>
+<input #inputSearchProducto
+       id="input-search-product"
+       (keyup)="setQueryString($event)"
+       type="text" class="form-control">
