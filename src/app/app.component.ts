@@ -7,4 +7,5 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   sanguchito = 'Bienvenidos al Curso de Angular de Lucho!';
+  backgroundcolor = 'red'
 }

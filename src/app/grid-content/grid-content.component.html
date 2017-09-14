@@ -1,3 +1,8 @@
+<div *ngIf="productoSeleccionado" class="row">
+  <label>Producto: </label><span>{{ productoSeleccionado.prod_descripcion }}</span>
+</div>
+<button class="btn btn-primary" (click)="productoSeleccionado = null"
+        *ngIf="productoSeleccionado">LIMPIAR</button>
 <table class="table table-responsive table-bordered">
   <thead>
   <th>Código de producto</th>
@@ -6,7 +11,7 @@
   <th>Precio de Producto</th>
   </thead>
   <tbody>
-  <tr *ngFor="let producto of productos">
+  <tr *ngFor="let producto of productos" (click)="seleccionarProducto(producto)">
     <td>{{ producto.prod_codigo }}</td>
     <td>{{ producto.prod_descripcion }}</td>
     <td>{{ producto.prtifr_codigo === 1 ? 'ENTERO' : 'FRACCION' }}</td>

@@ -9,24 +9,33 @@ import {IProducto} from "../shared/interfaces/producto.interface";
   styleUrls: ['./grid-content.component.css']
 })
 export class GridContentComponent implements OnInit {
-  queryString: string;
+  luchito: string;
   productos: IProducto[];
+  productoSeleccionado: IProducto;
 
   constructor(private inputSearchService: InputSearchService,
               private productoService: ProductoService) {
   }
 
   ngOnInit() {
-    this.inputSearchService.queryString.subscribe((queryString) => {
-      this.queryString = queryString;
-      this.getProductos();
-    });
+    this.inputSearchService.queryString.subscribe((roger) => {
+      if (roger.length > 3) {
+        this.luchito = roger;
+        this.getProductos();
+      } else {
+        this.productos = [];
+      }
+    })
   }
 
   getProductos() {
-    this.productoService.getProductos(this.queryString).subscribe((productos) => {
-      this.productos = productos;
-    })
+    this.productoService.getProductos(this.luchito).subscribe((productos) => {
+      this.productos = productos
+    });
+  }
+
+  seleccionarProducto(producto: IProducto) {
+    this.productoSeleccionado = producto;
   }
 
 }

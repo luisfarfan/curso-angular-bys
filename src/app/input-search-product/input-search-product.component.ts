@@ -17,6 +17,7 @@ export class InputSearchProductComponent implements OnInit {
   }
 
   setQueryString(event) {
+    console.log(event.keyCode)
     this.queryString = event.target.value;
     this.inputSearchService.queryString.emit(this.queryString);
   }
